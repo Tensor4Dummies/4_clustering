@@ -5,7 +5,7 @@ El clustering consiste en la división de un conjunto de datos X en K subconjunt
 
 En la siguiente imagen se pueden apreciar varios grupos de iconos, que serían los clusters. En cada cluster los elementos son iguales o muy parecidos, pudiendo variar ligeramente de tamaño. Los elementos de cada uno de los grupos se diferencian claramente de los elementos de otras agrupaciones.
 
-![Ejemplo de clusters](/clusters.png)
+![Ejemplo de clusters](/ejemplo_cluster.png)
 
 Es la forma más común del **aprendizaje no supervisado**. En el aprendizaje supervisado, el proceso de aprendizaje se lleva a cabo a través de entrenamiento controlado por un agente externo que indica la respuesta que debería generar la red a partir de una entrada determinada. Sin embargo, en el aprendizaje no supervisado, no se proporcionan estos ejemplos, y son los propios algoritmos los que tienen que descubrir características de los datos y encontrar alguna manera de organizarlos.
 
