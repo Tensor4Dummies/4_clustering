@@ -14,3 +14,4 @@ Es la forma más común del **aprendizaje no supervisado**. En el aprendizaje su
 
 
 ## Clustering k-medias (k-means)
+Se establecen k clases a priori, todas separadas por fronteras de decisión, que se establece como la mitad de la distancia entre centroides de distintas clases.
