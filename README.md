@@ -2,7 +2,7 @@
 
 ## Introducción
 El clustering consiste en la división de un conjunto de datos X en K subconjuntos (clusters) distintos C<sub>1</sub>, C<sub>2</sub>…C<sub>K</sub> tales que los objetos dentro de cada subconjunto son similares y objetos en distintos subconjuntos son diferentes. Es decir, que los documentos, imágenes o vectores de características en un cluster deberían ser parecidos, y los de clusters diferentes deberían ser distintos.
-El objetivo es repartir los datos en clases con alta similitud intraclase y baja similitud interclase.
+El objetivo es particionar los datos en clases con alta similitud intraclase y baja similitud interclase.
 
 En la siguiente imagen se pueden apreciar varias formas geométricas, que formarían tres clusters. En cada cluster los elementos son  parecidos, pudiendo variar de tamaño o de color. Los elementos de cada uno de los grupos se diferencian claramente de los elementos de otras agrupaciones.
 
@@ -19,4 +19,5 @@ En la siguiente imagen se pueden apreciar varias formas geométricas, que formar
 
 
 ## Clustering k-medias (k-means)
-Se establecen k clases a priori, todas separadas por fronteras de decisión, que se establece como la mitad de la distancia entre centroides de distintas clases.
+Se establecen clases a priori, todas separadas por fronteras de decisión, que se establece como la mitad de la distancia entre centroides de distintas clases.
+
