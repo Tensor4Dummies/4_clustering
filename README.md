@@ -29,6 +29,7 @@ Suponiendo que estamos en un espacio n-dimensional, la distancia euclídea entre
 
 3.	Una vez obtenida la distancia para cada dato de la muestra, se asigna cada uno de estos datos al centroide cuya distancia euclídea sea la mínima.
 4.	Al terminar, se tienen K grupos de observaciones.
-5.	Conociendo los nuevos elementos de cada cluster, ahora se calcula el nuevo centroide de cada grupo basándose en los nuevos miembros.</br> Lo que se hace es sumar las coordenadas de cada punto y dividirlo por el número de elementos del cluster. 
+5.	Conociendo los nuevos elementos de cada cluster, ahora se calcula el nuevo centroide de cada grupo basándose en los nuevos miembros.</br> Lo que se hace es sumar las coordenadas de cada punto y dividirlo por el número de elementos del cluster. Suponiendo de nuevo que estamos en un espacio n-dimensional, y que m es el nuevo número de elementos del cluster, los nuevos centroides se calcularían así:</br>
+![equation](http://www.sciweavers.org/upload/Tex2Img_1509306768/render.png)
 6.	Repetir el proceso hasta que no haya reasignaciones de puntos a clusters distintos.
 
