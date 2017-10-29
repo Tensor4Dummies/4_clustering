@@ -24,8 +24,8 @@ El objetivo es minimizar la diferencia intra-cluster y maximizar la diferencia i
 Para ello, se utiliza un algoritmo llamado **algoritmo de Lloyd**, que consiste en:
 1.	Inicialmente, se define K, que será el número de clusters. Este número se puede escoger de manera aleatoria, pero dependiendo del número elegido el resultado variará.</br>Lo que se suele hacer es tomar K observaciones de la muestra al azar. Estos k datos elegidos serán los centroides iniciales.
 2.	Sabiendo que en total hay N muestras, para cada uno de los N-K datos restantes se calcula la distancia entre ese dato y cada uno de los centroides.</br>Para calcular esta distancia, se usa la fórmula de la distancia euclídea o euclidiana. Los datos están formados por coordenadas cartesianas de n dimensiones. Para hacer esta operación, hay que restar las coordenadas del punto menos las coordenadas del centroide.</br>
-Suponiendo que estamos en un espacio n-dimensional, la distancia euclídea entre los puntos P=(p<sub>1</sub>, p<sub>2</sub>, ..., p<sub>n</sub>) y Q=(q<sub>1</sub>, q<sub>2</sub>, ..., q<sub>n</sub>) sería así:</br>
-
+Suponiendo que estamos en un espacio n-dimensional, la distancia euclídea entre los puntos *P=(p<sub>1</sub>, p<sub>2</sub>, ..., p<sub>n</sub>)* y *Q=(q<sub>1</sub>, q<sub>2</sub>, ..., q<sub>n</sub>)* sería así:</br>
+![equation](http://www.sciweavers.org/upload/Tex2Img_1509306370/render.png)
 
 3.	Una vez obtenida la distancia para cada dato de la muestra, se asigna cada uno de estos datos al centroide cuya distancia euclídea sea la mínima.
 4.	Al terminar, se tienen K grupos de observaciones.
