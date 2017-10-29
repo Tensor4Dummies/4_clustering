@@ -2,6 +2,7 @@
 
 ## Introducción
 El clustering consiste en la división de un conjunto de datos X en K subconjuntos (clusters) distintos C1, C2…CK tales que los objetos dentro de cada subconjunto son similares y objetos en distintos subconjuntos son diferentes. Es decir, que los documentos, imágenes o vectores de características en un cluster deberían ser parecidos, y los de clusters diferentes deberían ser distintos.
+
 En la siguiente imagen se pueden apreciar varios grupos de iconos, que serían los clusters. En cada cluster los elementos son iguales o muy parecidos, pudiendo variar ligeramente de tamaño. Los elementos de cada uno de los grupos se diferencian claramente de los elementos de otras agrupaciones.
 
 ![Ejemplo de clusters](/clusters.png)
