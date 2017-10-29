@@ -8,7 +8,7 @@ En la siguiente imagen se pueden apreciar varias formas geométricas, que formar
 
 ![Ejemplo de clusters](/ejemplo_clusters.png)
 
-<span>El clustering es la forma más común del **aprendizaje no supervisado**. En el aprendizaje supervisado, el proceso de aprendizaje se lleva a cabo a través de entrenamiento controlado por un agente externo que indica la respuesta que debería generar la red a partir de una entrada determinada. Sin embargo, en el aprendizaje no supervisado, no se proporcionan estos ejemplos, y son los propios algoritmos los que tienen que descubrir características de los datos y encontrar alguna manera de organizarlos.</span>
+<span>El clustering es la forma más común del **aprendizaje no supervisado**. En el aprendizaje supervisado, el proceso de aprendizaje se lleva a cabo a través de entrenamiento controlado por un agente externo que indica la respuesta que debería generar la red a partir de una entrada determinada. Sin embargo, en el aprendizaje no supervisado, no se proporcionan estos ejemplos y son los propios algoritmos los que tienen que descubrir características de los datos y encontrar alguna manera de organizarlos.</span>
 </br>
 
 ## Algoritmos de clustering
@@ -32,4 +32,5 @@ Suponiendo que estamos en un espacio n-dimensional, la distancia euclídea entre
 5.	Conociendo los nuevos elementos de cada cluster, ahora se calcula el nuevo centroide de cada grupo basándose en los nuevos miembros.</br> Lo que se hace es sumar las coordenadas de cada punto y dividirlo por el número de elementos del cluster. Suponiendo de nuevo que estamos en un espacio n-dimensional, y que m es el nuevo número de elementos del cluster, los nuevos centroides se calcularían así:</br>
 ![equation](http://www.sciweavers.org/upload/Tex2Img_1509306768/render.png)
 6.	Repetir el proceso hasta que no haya reasignaciones de puntos a clusters distintos.
-
+</br>
+Como resultado, el algoritmo devuelve los centroides definitivos y los vectores de etiquetas, que asignan cada punto de la muestra a una de las clases.
