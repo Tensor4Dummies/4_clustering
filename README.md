@@ -18,16 +18,14 @@ En la siguiente imagen se pueden apreciar varias formas geométricas, que formar
 4.	**Clustering basado en la densidad**. Se agrupan objetos en clusters mientras su número de elementos (densidad) en el cluster más cercano esté dentro de un cierto umbral.
 
 
+
 ## Clustering k-medias (k-means)
 El objetivo es minimizar la diferencia intra-cluster y maximizar la diferencia inter-cluster, es decir, que los elementos dentro de un mismo cluster sean lo más parecido posible, y que, comparándolos con elementos de otros clusters, sean lo más distinto posible.
 Para ello, se utiliza un algoritmo llamado **algoritmo de Lloyd**, que consiste en:
-1.	Inicialmente, se define K número de clusters. Este número se puede escoger de manera aleatoria, pero dependiendo del número elegido el resultado variará.
-Lo que se suele hacer es tomar K observaciones de la muestra al azar. Estos k datos elegidos serán los centroides iniciales.
-2.	Sabiendo que en total hay N muestras, para cada uno de los N-K datos restantes se calcula la distancia entre ese dato y cada uno de los centroides.
-Para calcular esta distancia, se usa la fórmula de la distancia euclídea o euclidiana. Los datos están formados por coordenadas cartesianas de n dimensiones. Para hacer esta operación, hay que restar las coordenadas del punto menos las coordenadas del centroide.
+1.	Inicialmente, se define K número de clusters. Este número se puede escoger de manera aleatoria, pero dependiendo del número elegido el resultado variará.</br>Lo que se suele hacer es tomar K observaciones de la muestra al azar. Estos k datos elegidos serán los centroides iniciales.
+2.	Sabiendo que en total hay N muestras, para cada uno de los N-K datos restantes se calcula la distancia entre ese dato y cada uno de los centroides.</br>Para calcular esta distancia, se usa la fórmula de la distancia euclídea o euclidiana. Los datos están formados por coordenadas cartesianas de n dimensiones. Para hacer esta operación, hay que restar las coordenadas del punto menos las coordenadas del centroide.
 3.	Una vez obtenida la distancia para cada dato de la muestra, se asigna cada uno de estos datos al centroide cuya distancia euclídea sea la mínima.
-4.	Al terminar, se tienen K grupos de observaciones
-5.	Conociendo los nuevos elementos de cada cluster, ahora se calcula el nuevo centroide de cada grupo basándose en los nuevos miembros.
-Lo que se hace es sumar las coordenadas de cada punto y dividirlo por el número de elementos del cluster. 
-6.	Repetir el proceso hasta que no haya reasignaciones de puntos.
+4.	Al terminar, se tienen K grupos de observaciones.
+5.	Conociendo los nuevos elementos de cada cluster, ahora se calcula el nuevo centroide de cada grupo basándose en los nuevos miembros.</br> Lo que se hace es sumar las coordenadas de cada punto y dividirlo por el número de elementos del cluster. 
+6.	Repetir el proceso hasta que no haya reasignaciones de puntos a clusters distintos.
 
