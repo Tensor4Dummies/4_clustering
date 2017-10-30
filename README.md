@@ -123,11 +123,12 @@ plt.plot(valores_centroides[:, 0], valores_centroides[:, 1], 'kx', markersize=15
 plt.show()
 ```
 
+
 La siguiente imagen sería un posible resultado obtenido al indicar 800 como número total de puntos de la muestra, 4 como número de clusters y 500 como número de iteraciones.
 
 ![Posible resultado del ejemplo](/posible_resultado.png)
  
- Además, los centroides quedarían así:
+ Además, los centroides finales quedarían así:
  ```pyhton
  Centroides finales:
 [[ 7.69324076  2.35547593]
