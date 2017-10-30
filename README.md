@@ -54,7 +54,7 @@ Una vez entendido el funcionamiento de clustering con el método k-medias, pasam
 Para ello usaremos Python y la librería de TensorFlow, además de la librería NumPy para realizar algunos cálculos complejos y la librería MatPlotLib, para poder ver el resultado final de manera gráfica.
 Para empezar, vamos a definir algunos valores que necesitará el algoritmo para poder realizar todos sus pasos:
    
-   - *num_puntos* = número de puntos que tendrá la muestra
+   - *num_puntos* = número de puntos que tendrá la muestra en total
    - *num_clusters* = número de clusters en los que se dividirán los datos
    - *num_iteraciones* = número de veces que se repetirá el algoritmo
    
@@ -63,5 +63,9 @@ Para empezar, vamos a definir algunos valores que necesitará el algoritmo para 
    puntos = tf.constant(np.random.uniform(0, 10, (num_puntos, 2)))
    centroides = tf.Variable(tf.slice(tf.random_shuffle(puntos), [0, 0], [num_clusters, -1]))
    ```
+   Los puntos serán de tipo constante porque se van a mantener en la misma posición durante todo el proceso.
+   Los centroides, sin embargo, son de tipo variable porque se actualizan con cada iteración del algoritmo.
+   
+  
    
   
