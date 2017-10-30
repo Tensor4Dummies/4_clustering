@@ -4,11 +4,7 @@
 - [Algoritmos de clustering](#algoritmos-de-clustering)
 - [Clustering con k-means](#clustering-con-k-medias-k-means)
 - [Ejemplo con TensorFlow](#ejemplo-con-tensorflow)  
-        1. [Crear los datos de muestra](#1-crear-los-datos-de-muestra)  
-        2. [Elegir los centroides iniciales](#2-elegir-los-centroides-iniciales)  
-        3. [Asignar el centroide más cercano a cada punto](#3-asignar-el-centroide-más-cercano-a-cada-punto)  
-        4. [Actualizar los centroides](#4-actualizar-los-centroides)  
-        5. [Mostrar el resultado de forma gráfica](#5-mostrar-el-resultado-de-forma-gráfica)  
+         
 
 
 ___
@@ -59,20 +55,6 @@ Para ello usaremos Python y la librería de TensorFlow, además de la librería 
 Para empezar, vamos a definir algunos valores que necesitará el algoritmo para poder realizar todos sus pasos:
    
    - *num_clusters* :  número de clusters
-   - *seed* : número semilla para generar números aleatorios
    - *factor_crec* : número que hará que los clusters se expandan más o menos, dependiendo de su valor 
    - *muestras_por_cluster* : número de muestras que tendrá cada cluster inicialmente
    - *num_dim* : número de dimensiones del espacio en el que están los datos
-
-Una vez definidos estos valores, se puede proceder a llamar a las funciones.
-</br>
-###       1. Crear los datos de muestra
-
-
-###       2. Elegir los centroides iniciales
-
-###       3. Asignar el centroide más cercano a cada punto
-
-###       4. Actualizar los centroides
-
-###       5. Mostrar el resultado de forma gráfica
