@@ -87,7 +87,7 @@ dist_minima = tf.argmin(distancias, 0)
 ```
 
 
-Para el siguiente paso, hay que hacer una resta elemento por elemento de los puntos y de los centroides que sean tensores de dos dimensiones. Si se imprimen las variables puntos y centroides, vemos que no son iguales.
+Para poder calcular la distancia, hay que hacer una resta elemento por elemento de los puntos y de los centroides que sean tensores de dos dimensiones. Si se imprimen las variables `puntos` y `centroides`, vemos que no son iguales.
 ```python
 Tensor("Const:0", shape=(800, 2), dtype=float64)
 <tf.Variable 'Variable:0' shape=(4, 2) dtype=float64_ref>
