@@ -3,12 +3,12 @@
 - [Introducción](#introducción)
 - [Algoritmos de clustering](#algoritmos-de-clustering)
 - [Clustering con k-means](#clustering-con-k-medias-k-means)
-- [Ejemplo con TensorFlow](#ejemplo-con-tensorflow)
-    [1. Crear los datos de muestra](#1-crear-los-datos-de-muestra)
-    [2. Elegir los centroides iniciales](#2-elegir-los-centroides-iniciales)
-    [3. Asignar el centroide más cercano a cada punto](#3-asignar-el-centroide-más-cercano-a-cada-punto)
-    [4. Actualizar los centroides](#4-actualizar-los-centroides)
-    [5. Mostrar el resultado de forma gráfica](#5-mostrar-el-resultado-de-forma-gráfica)
+- [Ejemplo con TensorFlow](#ejemplo-con-tensorflow)  
+    [1. Crear los datos de muestra](#1-crear-los-datos-de-muestra)  
+    [2. Elegir los centroides iniciales](#2-elegir-los-centroides-iniciales)  
+    [3. Asignar el centroide más cercano a cada punto](#3-asignar-el-centroide-más-cercano-a-cada-punto)  
+    [4. Actualizar los centroides](#4-actualizar-los-centroides)  
+    [5. Mostrar el resultado de forma gráfica](#5-mostrar-el-resultado-de-forma-gráfica)  
 
 
 ## Introducción
