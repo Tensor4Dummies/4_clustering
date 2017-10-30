@@ -116,14 +116,18 @@ dist_minima = tf.argmin(distancias, 0)
 ### iii. Cálculo y actualización de los nuevos centroides
 Pasamos a comparar cada cluster con el vector de etiquetas de un cluster, asignaremos los puntos a cada cluster y calcularemos los valores medios. Estas medias serán los nuevos centroides, así que habrá que actualizar la variable `centroides` con los nuevos valores obtenidos.
 ```python
-medias = []
-for i in range(num_clusters):
-    medias.append(tf.reduce_mean(tf.gather(puntos, tf.reshape(tf.where(tf.equal(dist_minima, i)), [1, -1])),
-                                 reduction_indices=[1]))
-nuevos_centroides = tf.concat(medias, 0)
+lista_centroides = tf.dynamic_partition(puntos, tf.cast(dist_minima, tf.int32), num_clusters)
+medias = [tf.reduce_mean(datapoints, 0) for datapoints in lista_centroides]
+nuevos_centroides = tf.stack(medias)
+```
+Lo que se hace es crear una lista mediante el método de partición dinámica, que indica qué es lo que se quiere dividir,  y el número de particiones que se quieren. En este caso, serían los puntos, la distancia mínima y el número de clusters respectivamente.
 
+```python
 centroides_actualizados = tf.assign(centroides, nuevos_centroides)
 ```
+Se asignan los centroides calculados a la variable `centroides`.
+
+
 
 ### iv. Ejecución del algoritmo
 
