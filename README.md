@@ -79,5 +79,46 @@ Para seleccionar centroides dentro de la muestra de los puntos generados de mane
 - El punto de partida.
 - El tamaño del dato extraído. El -1 indica que el tamaño de esa dimensión se computa de manera que el tamaño total sea constante.
 
-   
+
+Ahora se calcula la distancia entre centroides y puntos con la distancia euclídea mencionada anteriormente, y se obtiene la distancia mínima de todas las calculadas.
+```python
+distancias = tf.reduce_sum(tf.square(tf.subtract(puntos_expand, centroides_expand)), 2)
+dist_minima = tf.argmin(distancias, 0)
+```
+
+```python
+puntos_expand = tf.expand_dims(puntos, 0)
+centroides_expand = tf.expand_dims(centroides, 1)
+```
+
+```python
+medias = []
+for c in range(num_clusters):
+    medias.append(tf.reduce_mean(tf.gather(puntos, tf.reshape(tf.where(tf.equal(dist_minima, c)), [1, -1])),
+                                 reduction_indices=[1]))
+
+nuevos_centroides = tf.concat(medias, 0)
+
+centroides_actualizados = tf.assign(centroides, nuevos_centroides)
+```
+
+```python
+init = tf.global_variables_initializer()
+
+with tf.Session() as sess:
+    sess.run(init)
+    for step in range(num_iteraciones):
+        [_, valores_centroides, valores_puntos, valores_asignaciones] = sess.run(
+            [centroides_actualizados, centroides, puntos, dist_minima])
+
+    print ("Centroides: \n{}".format(valores_centroides))
+```
+
+
+```python
+plt.scatter(valores_puntos[:, 0], valores_puntos[:, 1], c=valores_asignaciones, s=40, alpha=1, cmap=plt.cm.rainbow)
+plt.plot(valores_centroides[:, 0], valores_centroides[:, 1], 'kx', markersize=15, mew=2)
+plt.show()
+
+```
   
