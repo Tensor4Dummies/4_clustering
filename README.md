@@ -114,11 +114,15 @@ with tf.Session() as sess:
     print ("Centroides: \n{}".format(valores_centroides))
 ```
 
-
+Por último se utilizan métodos de la librería MatPlotLib para mostrar el resultado final en un grafo.   
+Primero se crea un grafo de dispersión para representar todos los puntos de la muestra, configurando tamaño, transparencia y colores.  
+Después se dibujan los puntos donde están situados los centroides que ha devuelto el algoritmo en forma de cruces negras.
 ```python
 plt.scatter(valores_puntos[:, 0], valores_puntos[:, 1], c=valores_asignaciones, s=40, alpha=1, cmap=plt.cm.rainbow)
 plt.plot(valores_centroides[:, 0], valores_centroides[:, 1], 'kx', markersize=15, mew=2)
 plt.show()
-
 ```
+La siguiente imagen sería un posible resultado obtenido al indicar 800 como número total de puntos de la muestra, 4 como número de clusters y 500 como número de iteraciones.
+
+[Posible resultado del ejemplo](/posible_resultado.png)
   
