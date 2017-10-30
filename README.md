@@ -1,5 +1,4 @@
 # CLUSTERING
-</br>
 
 - [Introducción](#introducción)
 - [Algoritmos de clustering](#algoritmos-de-clustering)
@@ -11,8 +10,10 @@
         4. [Actualizar los centroides](#4-actualizar-los-centroides)  
         5. [Mostrar el resultado de forma gráfica](#5-mostrar-el-resultado-de-forma-gráfica)  
 
+
 ___
-</br>
+
+
 
 ## Introducción
 El clustering consiste en la división de un conjunto de datos X en K subconjuntos (clusters) distintos C<sub>1</sub>, C<sub>2</sub>…C<sub>K</sub> tales que los objetos dentro de cada subconjunto son similares y objetos en distintos subconjuntos son diferentes. Es decir, que los documentos, imágenes o vectores de características en un cluster deberían ser parecidos, y los de clusters diferentes deberían ser distintos.  
