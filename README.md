@@ -86,9 +86,25 @@ distancias = tf.reduce_sum(tf.square(tf.subtract(puntos_expand, centroides_expan
 dist_minima = tf.argmin(distancias, 0)
 ```
 
+
+Para el siguiente paso, hay que hacer una resta elemento por elemento de los puntos y de los centroides que sean tensores de dos dimensiones. Si se imprimen las variables puntos y centroides, vemos que no son iguales.
+```python
+Tensor("Const:0", shape=(800, 2), dtype=float64)
+<tf.Variable 'Variable:0' shape=(4, 2) dtype=float64_ref>
+```
+Debido a que los tensores tienen una forma diferente, lo que hay que hacer es expandirlos a tres dimensiones. Lo que hace esto es que el array más pequeño se "difunde" a través del más grande para que tengan formas compatibles y así poder operarse elemento por elemento.
+Por ejemplo, un vector de 3 elementos pasaría a ser una matriz de 3x1.  
+Para hacer esta expansión a una dimensión más, lo que se hace es ejecutar:
 ```python
 puntos_expand = tf.expand_dims(puntos, 0)
 centroides_expand = tf.expand_dims(centroides, 1)
+```
+Donde el primer parámetro es la variable a expandir y el segundo parámatro es la posición en la que se añadirá la nueva dimensión.  
+Así, al volver a imprimir estas dos variables, el resultado será:
+```python
+Tensor("ExpandDims:0", shape=(1, 800, 2), dtype=float64)
+Tensor("ExpandDims_1:0", shape=(4, 1, 2), dtype=float64)
+
 ```
 
 ```python
