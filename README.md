@@ -4,11 +4,11 @@
 - [Algoritmos de clustering](#algoritmos-de-clustering)
 - [Clustering con k-means](#clustering-con-k-medias-k-means)
 - [Ejemplo con TensorFlow](#ejemplo-con-tensorflow)  
-     1. [Generación de datos y selección de centroides iniciales](#1-generación-de-datos-y-selección-de-centroides-iniciales)
-     2. [Cálculo de la distancia entre puntos y centroides](#2-cálculo-de-la-distancia-entre-puntos-y-centroides)
-     3. [Cálculo y actualización de los nuevos centroides](#3-cálculo-y-actualización-de-los-nuevos-centroides)
-     4. [Ejecución del algoritmo](#4-ejecución-del-algoritmo)
-     5. [Mostrar el resultado gráficamente](#5-mostrar-el-resultado-gráficamente)
+     1. [Generación de datos y selección de centroides iniciales](#i-generación-de-datos-y-selección-de-centroides-iniciales)
+     2. [Cálculo de la distancia entre puntos y centroides](#ii-cálculo-de-la-distancia-entre-puntos-y-centroides)
+     3. [Cálculo y actualización de los nuevos centroides](#iii-cálculo-y-actualización-de-los-nuevos-centroides)
+     4. [Ejecución del algoritmo](#iv-ejecución-del-algoritmo)
+     5. [Mostrar el resultado gráficamente](#v-mostrar-el-resultado-gráficamente)
 
 
 ___
