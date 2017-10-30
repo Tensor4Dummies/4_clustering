@@ -120,7 +120,7 @@ lista_centroides = tf.dynamic_partition(puntos, tf.cast(dist_minima, tf.int32), 
 medias = [tf.reduce_mean(datapoints, 0) for datapoints in lista_centroides]
 nuevos_centroides = tf.stack(medias)
 ```
-Lo que se hace es crear una lista mediante el método de partición dinámica, que indica qué es lo que se quiere dividir,  y el número de particiones que se quieren. En este caso, serían los puntos, la distancia mínima y el número de clusters respectivamente.
+Lo que se hace es crear una lista mediante el método de partición dinámica, que indica qué es lo que se quiere dividir,  y el número de particiones que se quieren. En este caso, serían los puntos, la distancia mínima y el número de clusters, respectivamente.
 
 ```python
 centroides_actualizados = tf.assign(centroides, nuevos_centroides)
