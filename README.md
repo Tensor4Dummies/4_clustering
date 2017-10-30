@@ -109,18 +109,18 @@ Tensor("ExpandDims_1:0", shape=(4, 1, 2), dtype=float64)
 Ahora se calcula la distancia entre centroides y puntos con la distancia euclídea mencionada anteriormente, y se obtiene la distancia mínima de todas las calculadas.
 ```python
 distancias = tf.reduce_sum(tf.square(tf.subtract(puntos_expand, centroides_expand)), 2)
-dist_minima = tf.argmin(distancias, 0)
+asignacion_dist_min = tf.argmin(distancias, 0)
 ```
 
 
 ### iii. Cálculo y actualización de los nuevos centroides
 Pasamos a comparar cada cluster con el vector de etiquetas de un cluster, asignaremos los puntos a cada cluster y calcularemos los valores medios. Estas medias serán los nuevos centroides, así que habrá que actualizar la variable `centroides` con los nuevos valores obtenidos.
 ```python
-lista_centroides = tf.dynamic_partition(puntos, tf.cast(dist_minima, tf.int32), num_clusters)
+lista_centroides = tf.dynamic_partition(puntos, tf.cast(asignacion_dist_min, tf.int32), num_clusters)
 nuevos_centroides  = [tf.reduce_mean(punto, 0) for punto in lista_centroides]
 centroides_actualizados = tf.assign(centroides, nuevos_centroides)
 ```
-Lo que se hace es crear una lista mediante el método de partición dinámica, que indica qué es lo que se quiere dividir, el índice de la lista resultante en el que irá el elemento y el número de particiones que se quieren. En este caso, los parámetros serían los puntos, la distancia mínima y el número de clusters, respectivamente.  
+Lo que se hace es crear una lista mediante el método de partición dinámica, que indica qué es lo que se quiere dividir, el índice de la lista resultante en el que irá el elemento y el número de particiones que se quieren. En este caso, los parámetros serían los puntos, la asignación de cada punto con el centroide a mínima distancia y el número de clusters, respectivamente.  
 Después se calcula la media de estos puntos con el método `reduce_mean` por cada punto o dato en la lista. Al pasarle 0 como segundo parámetro, hace las operaciones con las coordenadas *x* por un lado y las operaciones con las coordenadas *y* por otro.
 Por último, se asignan los centroides calculados a la variable `centroides`.
 
@@ -135,7 +135,8 @@ with tf.Session() as sess:
     sess.run(init)
     for i in range(num_iteraciones):
         [_, valores_centroides, valores_puntos, valores_asignaciones] = sess.run(
-            [centroides_actualizados, centroides, puntos, dist_minima])
+            [centroides_actualizados, centroides, puntos, 
+            _minima])
 
     print ("Centroides finales: \n{}".format(valores_centroides))
 ```
