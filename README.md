@@ -23,7 +23,7 @@ En la siguiente imagen se pueden apreciar varias formas geométricas, que formar
 El objetivo es minimizar la diferencia intra-cluster y maximizar la diferencia inter-cluster, es decir, que los elementos dentro de un mismo cluster sean lo más parecido posible, y que, comparándolos con elementos de otros clusters, sean lo más distinto posible.
 Para ello, se utiliza un algoritmo llamado **algoritmo de Lloyd**, que consiste en:
 1.	Inicialmente, se define K, que será el número de clusters. Este número se puede escoger de manera aleatoria, pero dependiendo del número elegido el resultado variará.</br>Lo que se suele hacer es tomar K observaciones de la muestra al azar. Estos k datos elegidos serán los centroides iniciales.
-2.	Sabiendo que en total hay N muestras, para cada uno de los N-K datos restantes se calcula la distancia entre ese dato y cada uno de los centroides.</br>Para calcular esta distancia, se usa la fórmula de la distancia euclídea o euclidiana. Los datos están formados por coordenadas cartesianas de n dimensiones. Para hacer esta operación, hay que restar las coordenadas del punto menos las coordenadas del centroide.</br>
+2.	Sabiendo que en total hay N muestras, para cada uno de los N-K datos restantes se calcula la distancia entre ese dato y cada uno de los centroides.</br>Para calcular esta distancia, se pueden utilizar una variedad de fórmulas, pero normalmente la que se usa es la distancia euclídea o euclidiana. Los datos están formados por coordenadas cartesianas de n dimensiones. Para hacer esta operación, hay que restar las coordenadas del punto menos las coordenadas del centroide.</br>
 Suponiendo que estamos en un espacio n-dimensional, la distancia euclídea entre los puntos ![equation](http://www.sciweavers.org/upload/Tex2Img_1509306482/render.png) y ![equation](http://www.sciweavers.org/upload/Tex2Img_1509306540/render.png) sería así:</br>
 ![equation](http://www.sciweavers.org/upload/Tex2Img_1509306370/render.png)
 
@@ -34,3 +34,6 @@ Suponiendo que estamos en un espacio n-dimensional, la distancia euclídea entre
 6.	Repetir el proceso hasta que no haya reasignaciones de puntos a clusters distintos.
 </br>
 Como resultado, el algoritmo devuelve los centroides definitivos y los vectores de etiquetas, que asignan cada punto de la muestra a una de las clases.
+
+
+## Ejemplo con TensorFlow
