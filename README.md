@@ -111,7 +111,7 @@ with tf.Session() as sess:
         [_, valores_centroides, valores_puntos, valores_asignaciones] = sess.run(
             [centroides_actualizados, centroides, puntos, dist_minima])
 
-    print ("Centroides: \n{}".format(valores_centroides))
+    print ("Centroides finales: \n{}".format(valores_centroides))
 ```
 
 Por último se utilizan métodos de la librería MatPlotLib para mostrar el resultado final en un grafo.   
@@ -129,7 +129,7 @@ La siguiente imagen sería un posible resultado obtenido al indicar 800 como nú
  
  Además, los centroides quedarían así:
  ```pyhton
- Centroides:
+ Centroides finales:
 [[ 7.69324076  2.35547593]
  [ 2.52013846  2.6992541 ]
  [ 2.42233639  7.82168145]
