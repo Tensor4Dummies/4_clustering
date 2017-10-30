@@ -37,3 +37,15 @@ Como resultado, el algoritmo devuelve los centroides definitivos y los vectores 
 
 
 ## Ejemplo con TensorFlow
+Una vez entendido el funcionamiento de clustering con el método k-medias, pasamos a implementar un ejemplo con TensorFlow.
+Para ello usaremos Python y la librería de TensorFlow, además de la librería NumPy para realizar algunos cálculos complejos y la librería MatPlotLib, para poder ver el resultado final de manera gráfica.
+Para empezar, vamos a definir algunos valores que necesitará el algoritmo para poder realizar todos sus pasos.
+###  1. Crear los datos de muestra
+
+###  2. Elegir los centroides iniciales
+
+###  3. Asignar el centroide más cercano a cada punto
+
+###  4. Actualizar los centroides
+
+###  5. Mostrar el resultado de forma gráfica
