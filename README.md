@@ -124,15 +124,15 @@ nuevos_centroides = tf.concat(medias, 0)
 
 centroides_actualizados = tf.assign(centroides, nuevos_centroides)
 ```
-- 
 
 ### iv. Ejecución del algoritmo
+
 ```python
 init = tf.global_variables_initializer()
 
 with tf.Session() as sess:
     sess.run(init)
-    for step in range(num_iteraciones):
+    for i in range(num_iteraciones):
         [_, valores_centroides, valores_puntos, valores_asignaciones] = sess.run(
             [centroides_actualizados, centroides, puntos, dist_minima])
 
