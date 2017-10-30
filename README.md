@@ -1,5 +1,16 @@
 # CLUSTERING
 
+- [Introducción](#introducción)
+- [Algoritmos de clustering](#algoritmos-de-clustering)
+- [Clustering con k-means](#clustering-con-k-medias-k-means)
+- [Ejemplo con TensorFlow](#ejemplo-con-tensorflow)
+- [1. Crear los datos de muestra](#1-crear-los-datos-de-muestra)
+- [2. Elegir los centroides iniciales](#2-elegir-los-centroides-iniciales)
+- [3. Asignar el centroide más cercano a cada punto](#3-asignar-el-centroide-más-cercano-a-cada-punto)
+- [4. Actualizar los centroides](#4-actualizar-los-centroides)
+- [5. Mostrar el resultado de forma gráfica](#5-mostrar-el-resultado-de-forma-gráfica)
+
+
 ## Introducción
 El clustering consiste en la división de un conjunto de datos X en K subconjuntos (clusters) distintos C<sub>1</sub>, C<sub>2</sub>…C<sub>K</sub> tales que los objetos dentro de cada subconjunto son similares y objetos en distintos subconjuntos son diferentes. Es decir, que los documentos, imágenes o vectores de características en un cluster deberían ser parecidos, y los de clusters diferentes deberían ser distintos.  
 El objetivo es particionar los datos en clases con alta similitud intraclase y baja similitud interclase.
