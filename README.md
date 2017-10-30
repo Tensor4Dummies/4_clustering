@@ -117,14 +117,14 @@ dist_minima = tf.argmin(distancias, 0)
 Pasamos a comparar cada cluster con el vector de etiquetas de un cluster, asignaremos los puntos a cada cluster y calcularemos los valores medios. Estas medias serán los nuevos centroides, así que habrá que actualizar la variable `centroides` con los nuevos valores obtenidos.
 ```python
 medias = []
-for c in range(num_clusters):
-    medias.append(tf.reduce_mean(tf.gather(puntos, tf.reshape(tf.where(tf.equal(dist_minima, c)), [1, -1])),
+for i in range(num_clusters):
+    medias.append(tf.reduce_mean(tf.gather(puntos, tf.reshape(tf.where(tf.equal(dist_minima, i)), [1, -1])),
                                  reduction_indices=[1]))
 nuevos_centroides = tf.concat(medias, 0)
 
 centroides_actualizados = tf.assign(centroides, nuevos_centroides)
 ```
-
+- 
 
 ### iv. Ejecución del algoritmo
 ```python
