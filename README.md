@@ -80,13 +80,6 @@ Para seleccionar centroides dentro de la muestra de los puntos generados de mane
 - El tamaño del dato extraído. El -1 indica que el tamaño de esa dimensión se computa de manera que el tamaño total sea constante.
 
 
-Ahora se calcula la distancia entre centroides y puntos con la distancia euclídea mencionada anteriormente, y se obtiene la distancia mínima de todas las calculadas.
-```python
-distancias = tf.reduce_sum(tf.square(tf.subtract(puntos_expand, centroides_expand)), 2)
-dist_minima = tf.argmin(distancias, 0)
-```
-
-
 Para poder calcular la distancia, hay que hacer una resta elemento por elemento de los puntos y de los centroides que sean tensores de dos dimensiones. Si se imprimen las variables `puntos` y `centroides`, vemos que no son iguales.
 ```python
 Tensor("Const:0", shape=(800, 2), dtype=float64)
@@ -104,8 +97,15 @@ Así, al volver a imprimir estas dos variables, el resultado será:
 ```python
 Tensor("ExpandDims:0", shape=(1, 800, 2), dtype=float64)
 Tensor("ExpandDims_1:0", shape=(4, 1, 2), dtype=float64)
-
 ```
+
+
+Ahora se calcula la distancia entre centroides y puntos con la distancia euclídea mencionada anteriormente, y se obtiene la distancia mínima de todas las calculadas.
+```python
+distancias = tf.reduce_sum(tf.square(tf.subtract(puntos_expand, centroides_expand)), 2)
+dist_minima = tf.argmin(distancias, 0)
+```
+
 
 ```python
 medias = []
