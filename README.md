@@ -51,6 +51,7 @@ Suponiendo que estamos en un espacio n-dimensional, la distancia euclídea entre
 Como resultado, el algoritmo devuelve los centroides definitivos y los vectores de etiquetas, que asignan cada punto de la muestra a una de las clases.
 </br>
 
+
 ## Ejemplo con TensorFlow
 Una vez entendido el funcionamiento de clustering con el método k-medias, pasamos a implementar un ejemplo con TensorFlow.
 Para ello usaremos Python y la librería de TensorFlow, además de la librería NumPy para realizar algunos cálculos complejos y la librería MatPlotLib, para poder ver el resultado final de manera gráfica.
