@@ -4,11 +4,11 @@
 - [Algoritmos de clustering](#algoritmos-de-clustering)
 - [Clustering con k-means](#clustering-con-k-medias-k-means)
 - [Ejemplo con TensorFlow](#ejemplo-con-tensorflow)  
-         - [Generación de datos y selección de centroides iniciales]()
-         - [Cálculo de la distancia entre puntos y centroides]()
-         - [Cálculo y actualización de los nuevos centroides]()
-         - [Ejecución del algoritmo]()
-         - [Mostrar el resultado gráficamente]()
+     - [Generación de datos y selección de centroides iniciales]()
+     - [Cálculo de la distancia entre puntos y centroides]()
+     - [Cálculo y actualización de los nuevos centroides]()
+     - [Ejecución del algoritmo]()
+     - [Mostrar el resultado gráficamente]()
 
 
 ___
@@ -62,7 +62,7 @@ Para empezar, vamos a definir algunos valores que necesitará el algoritmo para 
    - `num_clusters` = número de clusters en los que se dividirán los datos
    - `num_iteraciones` = número de veces que se repetirá el algoritmo
 
-1. Generación de datos y selección de centroides iniciales
+### 1. Generación de datos y selección de centroides iniciales
 Empezamos definiendo los puntos y los centroides de manera aleatoria.  
 Los puntos serán de tipo constante porque se van a mantener en la misma posición durante todo el proceso. 
 ```python
@@ -85,7 +85,7 @@ Para seleccionar centroides dentro de la muestra de los puntos generados de mane
 - El tamaño del dato extraído. El -1 indica que el tamaño de esa dimensión se computa de manera que el tamaño total sea constante.
 
 
-2. Cálculo de la distancia entre puntos y centroides
+### 2. Cálculo de la distancia entre puntos y centroides
 Para poder calcular la distancia, hay que hacer una resta elemento por elemento de los puntos y de los centroides que sean tensores de dos dimensiones. Si se imprimen las variables `puntos` y `centroides`, vemos que no son iguales.
 ```python
 Tensor("Const:0", shape=(800, 2), dtype=float64)
@@ -113,7 +113,7 @@ dist_minima = tf.argmin(distancias, 0)
 ```
 
 
-3. Cálculo y actualización de los nuevos centroides
+### 3. Cálculo y actualización de los nuevos centroides
 Pasamos a comparar cada cluster con el vector de etiquetas de un cluster, asignaremos los puntos a cada cluster y calcularemos los valores medios. Estas medias serán los nuevos centroides, así que habrá que actualizar la variable `centroides` con los nuevos valores obtenidos.
 ```python
 medias = []
@@ -126,7 +126,7 @@ centroides_actualizados = tf.assign(centroides, nuevos_centroides)
 ```
 
 
-4. Ejecución del algoritmo
+### 4. Ejecución del algoritmo
 ```python
 init = tf.global_variables_initializer()
 
@@ -140,7 +140,7 @@ with tf.Session() as sess:
 ```
 
 
-5. Mostrar el resultado gráficamente
+### 5. Mostrar el resultado gráficamente
 Por último se utilizan métodos de la librería MatPlotLib para mostrar el resultado final en un grafo.   
 Primero se crea un grafo de dispersión para representar todos los puntos de la muestra, configurando tamaño, transparencia y colores.  
 Después se dibujan los puntos donde están situados los centroides que ha devuelto el algoritmo en forma de cruces negras.
