@@ -64,9 +64,9 @@ Los puntos serán de tipo constante porque se van a mantener en la misma posici�
 puntos = tf.constant(np.random.uniform(0, 10, (num_puntos, 2)))
 ```  
 Para crear puntos de manera aleatoria, se usa el método random.uniform de la librería NumPy, que usa una distribución uniforme con tres parámetros:
-    - El número más pequeño a generar
-    - El mayor número a generar
-    - Las dimensiones del número. En este caso, será de una matriz de num_puntos por dos dimensiones.
+- El número más pequeño a generar
+- El mayor número a generar
+- Las dimensiones del número. En este caso, será de una matriz de num_puntos por dos dimensiones.
 
 
 Los centroides, sin embargo, son de tipo variable porque se actualizan con cada iteración del algoritmo.
