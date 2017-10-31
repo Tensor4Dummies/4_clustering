@@ -125,7 +125,7 @@ Lo que se hace es crear una lista mediante el método de partición dinámica, a
 Esta lista que se obtiene tiene tantas particiones bidimensionales como número de clusters.  
 Para aclarar esto, supongamos que el número de clusters es 4 y que el número de puntos es 100. Si en el vector de asignaciones de distancias mínimas se indica un 2 en la sexta posición, significa que el punto de la sexta posición se colocaría en el elemento \[2] de la nueva lista. Así quedaría reflejado que este punto pertenece al tercer cluster. En el vector de asignaciones de distancia mínima, el resto de las posiciones que sean un 2 también irán a este tercer elemento o tercer cluster. De esta manera se irían repartiendo los elementos en los distintos clusters.  
 Después se calcula la media de estos puntos con el método `reduce_mean` por cada punto o dato en la lista. Al pasarle 0 como segundo parámetro, hace las operaciones con las coordenadas *x* por un lado y las operaciones con las coordenadas *y* por otro.
-Por último, se asignan los centroides calculados a la variable `centroides_actualizados`, de manera que quedan actualizados los centroides.
+Por último, se asignan los centroides calculados, `nuevos_centoides`, a la variable `centroides_actualizados`, de manera que quedan actualizados los centroides.
 
 
 
