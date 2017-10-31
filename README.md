@@ -130,16 +130,20 @@ Por último, se asignan los centroides calculados, `nuevos_centoides`, a la vari
 
 
 ### iv. Ejecución del algoritmo
-Se inicializan todas las variables y se inicia una sesión para poder ejecutar el algoritmo. Dentro de esta sesión, un bucle se ejecutará tantas veces como `num_iteraciones` se hayan indicado al principio.
+Se inicializan todas las variables y se inicia una sesión para poder ejecutar el algoritmo. Dentro de esta sesión, un bucle se ejecutará tantas veces como `num_iteraciones` se haya indicado al principio.
 ```python
-with tf.Session() as sess:
-    sess.run(init)
     for i in range(num_iteraciones):
-        [_, valores_centroides, valores_puntos, valores_asignaciones] = sess.run(
+        [_, valores_centroides, valores_puntos, valores_asignaciones] = sesion.run(
             [centroides_actualizados, centroides, puntos, vector_dist_minimas])
 
-    print ("Centroides finales: \n{}".format(valores_centroides))
+    print ("Centroides finales:\n", valores_centroides)
 ```
+Vemos que se están calculando cuatro valores a partir de tensores ya existentes:
+- `_`
+- `valores_centroides`
+- `valores_puntos`
+- `valores_asignaciones`
+
 Al terminar de iterar, se imprime el resultado, que son las coordenadas de los centroides finales.
 
 
