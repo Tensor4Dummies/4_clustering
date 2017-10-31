@@ -139,12 +139,12 @@ Se inicializan todas las variables y se inicia una sesión para poder ejecutar e
     print ("Centroides finales:\n", valores_centroides)
 ```
 Vemos que `sesion` está ejecutando cuatro de los tensores que habíamos definido antes:
-- `centroides actualizados` va a reasignar los nuevos centroides. Esta variable usa `nuevos_centroides`, que a su vez llama a la lista de particiones de `vector_dist_minimas`. Este array viene de `vector_distancias`, que contiene `centroides`. Una vez se tiene esta variable, se hacen todas las operaciones y se obtendrían los puntos de los nuevos centroides.  
+- `sesion.run(centroides actualizados)` va a reasignar los nuevos centroides. Esta variable usa `nuevos_centroides`, que a su vez llama a la lista de particiones de `vector_dist_minimas`. Este array viene de `vector_distancias`, que contiene `centroides`. Una vez se tiene esta variable, se hacen todas las operaciones y se obtendrían los puntos de los nuevos centroides.  
 Al iterar por primera vez, se utilizan los centroides iniciales. El resto de iteraciones, toma los últimos centroides obtenidos y los recalcula. De esta manera, la variable `centroides` va cambiando en cada iteración.  
 El símbolo `-` indica que este resultado se guardará en otra variable y se ignora.
-- `valores_centroides`: al llamar a `centroides_actualizados`, la variable `centroides` ha sido reasignada con los nuevos puntos que servirán como centro de los clusters. El resultado de esta reasignación de centroides es `valores_centroides`.
-- `valores_puntos`: son los puntos de la muestra. Se mantienen iguales durante todo el algoritmo, de ahí que sean de tipo constante.
-- `valores_distancias`: es el vector de distancias mínimas actualizado, especificando el número de cluster al que pertenece cada punto de la muestra después de haber recalculado los centroides.
+- Al llamar a `centroides_actualizados`, la variable `centroides` ha sido reasignada con los nuevos puntos que servirán como centro de los clusters. El resultado de esta reasignación con `sesion.run(centroides)` es `valores_centroides`.
+- `sesion.run(puntos)` son los puntos de la muestra. Se mantienen iguales durante todo el algoritmo, de ahí que sean de tipo constante.
+- `sesion.run(vector_dist_minimas)` actualiza el vector de distancias mínimas con los nuevos centroides calculados. Se guarda en `valores_distancia`, que especifica el número de cluster al que pertenece cada punto de la muestra después de haber recalculado los centroides.
 
 Al terminar de iterar, se imprime el resultado, que son las coordenadas de los centroides finales.
 
