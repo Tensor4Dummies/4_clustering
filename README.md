@@ -109,15 +109,16 @@ Tensor("ExpandDims_1:0", shape=(4, 1, 2), dtype=float64)
 Ahora se calcula la distancia entre centroides y puntos con la distancia euclídea mencionada anteriormente. El vector obtenido se minimiza y se obtiene la asignación de cada punto o posición al número de cluster de cuyo centroide esté más cerca.
 ```python
 distancias = tf.reduce_sum(tf.square(tf.subtract(puntos_expand, centroides_expand)), 2)
-vector_dist_min = tf.argmin(distancias, 0)
+vector_dist_minimas = tf.argmin(distancias, 0)
 ```
 
 
 ### iii. Cálculo y actualización de los nuevos centroides
 Pasamos a comparar cada cluster con el vector de etiquetas de un cluster, es decir, el último array obtenido. Asignaremos los puntos a cada cluster y calcularemos los valores medios. Estas medias serán los nuevos centroides, así que habrá que actualizar la variable `centroides` con los nuevos valores obtenidos.
 ```python
-lista = tf.dynamic_partition(puntos, tf.cast(vector_dist_min, tf.int32), num_clusters)
+lista = tf.dynamic_partition(puntos, tf.cast(vector_dist_minimas, tf.int32), num_clusters)
 nuevos_centroides  = [tf.reduce_mean(punto, 0) for punto in lista]
+
 centroides_actualizados = tf.assign(centroides, nuevos_centroides)
 ```
 Lo que se hace es crear una lista mediante el método de partición dinámica, al que se le pasa como parámetros qué es lo que se quiere dividir, el índice de la lista resultante en el que irá el elemento y el número de particiones deseadas. En este caso, los parámetros serían los puntos, el vector de etiquetas de cada punto y el número de clusters, respectivamente.  
@@ -137,8 +138,7 @@ with tf.Session() as sess:
     sess.run(init)
     for i in range(num_iteraciones):
         [_, valores_centroides, valores_puntos, valores_asignaciones] = sess.run(
-            [centroides_actualizados, centroides, puntos, 
-            _minima])
+            [centroides_actualizados, centroides, puntos, vector_dist_minimas])
 
     print ("Centroides finales: \n{}".format(valores_centroides))
 ```
