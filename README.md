@@ -100,13 +100,13 @@ centroides_expand = tf.expand_dims(centroides, 1)
 ```
 Donde el primer parámetro es la variable a expandir y el segundo parámatro es la posición en la que se añadirá la nueva dimensión.  
 Así, al volver a imprimir estas dos variables, el resultado será:
-```python
+```
 Tensor("ExpandDims:0", shape=(1, 800, 2), dtype=float64)
 Tensor("ExpandDims_1:0", shape=(4, 1, 2), dtype=float64)
 ```
 
 
-Ahora se calcula la distancia entre centroides y puntos con la distancia euclídea mencionada anteriormente. El vector obtenido se minimiza y se obtiene la asignación de cada punto al número de cluster de cuyo centroide esté más cerca.
+Ahora se calcula la distancia entre centroides y puntos con la distancia euclídea mencionada anteriormente. El vector obtenido se minimiza y se obtiene la asignación de cada punto o posición al número de cluster de cuyo centroide esté más cerca.
 ```python
 distancias = tf.reduce_sum(tf.square(tf.subtract(puntos_expand, centroides_expand)), 2)
 vector_dist_min = tf.argmin(distancias, 0)
@@ -120,10 +120,9 @@ lista = tf.dynamic_partition(puntos, tf.cast(vector_dist_min, tf.int32), num_clu
 nuevos_centroides  = [tf.reduce_mean(punto, 0) for punto in lista]
 centroides_actualizados = tf.assign(centroides, nuevos_centroides)
 ```
-Lo que se hace es crear una lista mediante el método de partición dinámica, que indica qué es lo que se quiere dividir, el índice de la lista resultante en el que irá el elemento y el número de particiones que se quieren. En este caso, los parámetros serían los puntos, el vector de etiquetas de cada punto y el número de clusters, respectivamente.  
+Lo que se hace es crear una lista mediante el método de partición dinámica, al que se le pasa como parámetros qué es lo que se quiere dividir, el índice de la lista resultante en el que irá el elemento y el número de particiones deseadas. En este caso, los parámetros serían los puntos, el vector de etiquetas de cada punto y el número de clusters, respectivamente.  
 Esta lista que se obtiene tiene tantas particiones bidimensionales como número de clusters.  
-Para aclarar esto, supongamos que el número de clusters es 4 y que el número de puntos es 100. Si en el vector de asignaciones de distancias mínimas se indica un 2 en la sexta posición, significa que el punto de la sexta posición se colocaría en el tercer elemento de la nueva lista. Así quedaría reflejado que este punto pertenece al tercer cluster. En el vector de asignaciones de distancia mínima, el resto de las posiciones que sean un 2 también irán a este tercer elemento o tercer cluster.  
-De esta manera se irían repartiendo los elementos en los distintos clusters.  
+Para aclarar esto, supongamos que el número de clusters es 4 y que el número de puntos es 100. Si en el vector de asignaciones de distancias mínimas se indica un 2 en la sexta posición, significa que el punto de la sexta posición se colocaría en el elemento \[2] de la nueva lista. Así quedaría reflejado que este punto pertenece al tercer cluster. En el vector de asignaciones de distancia mínima, el resto de las posiciones que sean un 2 también irán a este tercer elemento o tercer cluster. De esta manera se irían repartiendo los elementos en los distintos clusters.  
 Después se calcula la media de estos puntos con el método `reduce_mean` por cada punto o dato en la lista. Al pasarle 0 como segundo parámetro, hace las operaciones con las coordenadas *x* por un lado y las operaciones con las coordenadas *y* por otro.
 Por último, se asignan los centroides calculados a la variable `centroides_actualizados`, de manera que quedan actualizados los centroides.
 
