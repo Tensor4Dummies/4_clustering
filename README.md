@@ -139,10 +139,10 @@ Se inicializan todas las variables y se inicia una sesión para poder ejecutar e
     print ("Centroides finales:\n", valores_centroides)
 ```
 Vemos que se están calculando cuatro valores a partir de tensores ya existentes:
-- `_`
-- `valores_centroides`
-- `valores_puntos`
-- `valores_asignaciones`
+- `_`:
+- `valores_centroides`: 
+- `valores_puntos`: son los puntos de la muestra. Se mantienen iguales durante todo el algoritmo, de ahí que sean de tipo constante.
+- `valores_asignaciones`: 
 
 Al terminar de iterar, se imprime el resultado, que son las coordenadas de los centroides finales.
 
