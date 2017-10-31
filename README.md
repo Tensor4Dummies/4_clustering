@@ -108,8 +108,8 @@ Tensor("ExpandDims_1:0", shape=(4, 1, 2), dtype=float64)
 
 Ahora se calcula la distancia entre centroides y puntos con la distancia euclídea mencionada anteriormente. El vector obtenido se minimiza y se obtiene la asignación de cada punto o posición al número de cluster de cuyo centroide esté más cerca.
 ```python
-distancias = tf.reduce_sum(tf.square(tf.subtract(puntos_expand, centroides_expand)), 2)
-vector_dist_minimas = tf.argmin(distancias, 0)
+vector_distancias = tf.sqrt(tf.reduce_sum(tf.square(tf.subtract(puntos_expand, centroides_expand)), 2))
+vector_dist_minimas = tf.argmin(vector_distancias, 0)
 ```
 
 
