@@ -167,9 +167,9 @@ La siguiente imagen sería un posible resultado obtenido al indicar 800 como nú
  
  Además, los centroides finales quedarían así:
  ```pyhton
- Centroides finales:
-[[ 7.69324076  2.35547593]
- [ 2.52013846  2.6992541 ]
- [ 2.42233639  7.82168145]
- [ 7.23525408  7.67087173]]
+Centroides finales:
+ [[ 7.81670316  7.57256505]
+ [ 2.57910718  7.19336677]
+ [ 2.38124039  2.17226728]
+ [ 7.18812771  2.52348183]]
  ```
