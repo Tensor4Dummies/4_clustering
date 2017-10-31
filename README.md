@@ -133,7 +133,7 @@ Por último, se asignan los centroides calculados, `nuevos_centoides`, a la vari
 Se inicializan todas las variables y se inicia una sesión para poder ejecutar el algoritmo. Dentro de esta sesión, un bucle se ejecutará tantas veces como `num_iteraciones` se haya indicado al principio.
 ```python
     for i in range(num_iteraciones):
-        [_, valores_centroides, valores_puntos, valores_asignaciones] = sesion.run(
+        [_, valores_centroides, valores_puntos, valores_resultados] = sesion.run(
             [centroides_actualizados, centroides, puntos, vector_dist_minimas])
 
     print ("Centroides finales:\n", valores_centroides)
@@ -142,7 +142,7 @@ Vemos que se están calculando cuatro valores a partir de tensores ya existentes
 - `_`:
 - `valores_centroides`: 
 - `valores_puntos`: son los puntos de la muestra. Se mantienen iguales durante todo el algoritmo, de ahí que sean de tipo constante.
-- `valores_asignaciones`: 
+- `valores_resultados`: vector de distancias mínimas actualizado, especificando el número de cluster al que pertenece cada punto de la muestra después de haber recalculado los centroides.
 
 Al terminar de iterar, se imprime el resultado, que son las coordenadas de los centroides finales.
 
@@ -153,7 +153,7 @@ Por último se utilizan métodos de la librería MatPlotLib para mostrar el resu
 Primero se crea un grafo de dispersión para representar todos los puntos de la muestra, configurando tamaño, transparencia y colores.  
 Después se dibujan los puntos donde están situados los centroides que ha devuelto el algoritmo en forma de cruces negras.
 ```python
-plt.scatter(valores_puntos[:, 0], valores_puntos[:, 1], c=valores_asignaciones, s=40, alpha=1, cmap=plt.cm.rainbow)
+plt.scatter(valores_puntos[:, 0], valores_puntos[:, 1], c=valores_resultados, s=40, alpha=1, cmap=plt.cm.rainbow)
 plt.plot(valores_centroides[:, 0], valores_centroides[:, 1], 'kx', markersize=15, mew=2)
 plt.show()
 ```
