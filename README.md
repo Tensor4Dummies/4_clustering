@@ -130,10 +130,8 @@ Por último, se asignan los centroides calculados a la variable `centroides_actu
 
 
 ### iv. Ejecución del algoritmo
-
+Se inicializan todas las variables y se inicia una sesión para poder ejecutar el algoritmo.
 ```python
-init = tf.global_variables_initializer()
-
 with tf.Session() as sess:
     sess.run(init)
     for i in range(num_iteraciones):
