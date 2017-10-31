@@ -130,7 +130,7 @@ Por último, se asignan los centroides calculados, `nuevos_centoides`, a la vari
 
 
 ### iv. Ejecución del algoritmo
-Se inicializan todas las variables y se inicia una sesión para poder ejecutar el algoritmo.
+Se inicializan todas las variables y se inicia una sesión para poder ejecutar el algoritmo. Dentro de esta sesión, un bucle se ejecutará tantas veces como `num_iteraciones` se hayan indicado al principio.
 ```python
 with tf.Session() as sess:
     sess.run(init)
@@ -140,6 +140,8 @@ with tf.Session() as sess:
 
     print ("Centroides finales: \n{}".format(valores_centroides))
 ```
+Al terminar de iterar, se imprime el resultado, que son las coordenadas de los centroides finales.
+
 
 
 ### v. Mostrar el resultado gráficamente
