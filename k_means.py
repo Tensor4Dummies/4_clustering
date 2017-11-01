@@ -20,8 +20,8 @@ puntos_expand = tf.expand_dims(puntos, 0)
 centroides_expand = tf.expand_dims(centroides, 1)
 
 # Calcular la distancia euclídea y obtener la asignación de cada punto con el número de cluster más cercano
-vector_distancias = tf.sqrt(tf.reduce_sum(tf.square(tf.subtract(puntos_expand, centroides_expand)), 2))
-vector_dist_minimas = tf.argmin(vector_distancias, 0)
+distancias = tf.sqrt(tf.reduce_sum(tf.square(tf.subtract(puntos_expand, centroides_expand)), 2))
+vector_dist_minimas = tf.argmin(distancias, 0)
 
 #Se calculan los nuevos centroides
 lista = tf.dynamic_partition(puntos, tf.cast(vector_dist_minimas, tf.int32), num_clusters)
